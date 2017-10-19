@@ -11,16 +11,12 @@ fi
 # 電流と位置の振幅を計算する
 i_max=$(cat ${result_file_name}| awk 'BEGIN{m=-1000000}{if(m<$2) m=$2} END{print m}')
 echo "i_max":  $i_max
-
 i_min=$(cat ${result_file_name}| awk 'BEGIN{m=1000000}{if(m>$2) m=$2} END{print m}')
 echo "i_min":  $i_min
-
 omega_max=$(cat ${result_file_name}| awk 'BEGIN{m=-1000000}{if(m<$3) m=$3} END{print m}')
 echo "omega_max":  $omega_max
-
 omega_min=$(cat ${result_file_name}| awk 'BEGIN{m=1000000}{if(m>$3) m=$3} END{print m}')
 echo "omega_min":  $omega_min
-
 echo "i_length: " + $(echo "($i_max - $i_min) * 0.5" | bc )
 echo "omega_length: " + $(echo "($omega_max - $omega_min) * 0.5" | bc )
 
@@ -34,19 +30,17 @@ else
 	echo plot '"'${result_file_name}'"' u 1:2 every 10 w l title '"current[A]"'  > gnuplot
 	echo replot '"'${result_file_name}'"' u 1:3 every 10 w l title '"position [rad]"'  >> gnuplot
 fi
-echo "set grid" >> gnuplot
+echo set tics font '"'Helvetica,20'"'  >>gnuplot  # 目盛りのフォントの変更
+echo set xlabel font '"'Helvetica,20'"' >> gnuplot # xlabelのフォントの変更
+echo set ylabel font '"'Helvetica,20'"' >> gnuplot # ylabelのフォントの変更
+echo set key font '"'Helvetica,20'"'  >> gnuplot  # 凡例のフォントの変更
+echo set grid >> gnuplot
+echo set xlabel "'"time[s]"'" >> gnuplot
+echo set ylabel "'"current[A]/position[rad]"'" >> gnuplot
+echo replot >> gnuplot
 # echo "pause 500" >> gnuplot
 echo set terminal pdfcairo >> gnuplot
 echo set output '"'${output_file_name}'"' >> gnuplot
 echo replot >> gnuplot
 echo unset output >> gnuplot 
 cat gnuplot | gnuplot
-
-
-
-
-
-
-
-
-
