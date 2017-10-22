@@ -6,9 +6,9 @@ Trはばね定数,Ztは空気抵抗の大きさ,Tqはオブザーバーの強さ
 
 このディレクトリ内で
 ```
-bash generate_theoretical_graphes.sh
+$ bash generate_theoretical_graphes.sh
 ```
-を実行することで、各ディレクトリ内部に理論値をプロットしたグラフをプロットできる。
+を実行することで、各ディレクトリ内部に理論値をプロットしたグラフを生成できる。
 
 
 ## day1_no_weight
