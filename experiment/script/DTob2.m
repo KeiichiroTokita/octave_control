@@ -28,9 +28,12 @@ C = sysKp + sysKd;
 sysA = Pn / (1 + Pn*C);
 sysB=Pn * (1 - Q) / (1 + Pn*C);
 
+set(0,'defaultAxesFontSize',14);
+set(0,'defaultTextFontSize',20);
 step(sysA,sysB);
 xlabel("Time [ms]");
-ylabel("Step Responce")
+ylabel("position");
+legend("step response", "disturbance");
 name = ["Tr=", mat2str(tr), ", Zt=", num2str(zt, '%.2e'), ", Tq=", mat2str(tq)];
 title(strcat(name));
 print -dpdf "file.pdf"
