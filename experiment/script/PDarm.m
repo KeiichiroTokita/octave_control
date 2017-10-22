@@ -7,7 +7,7 @@ tr = input("INPUT;tr=")
 zt = input("INPUT;zt=")
 
 Kt = 0.6;
-J = 0.003;
+J = 0.007;
 Kp = J/(Kt*tr^2);
 Kd = 2*zt*tr*Kp;
 Kp

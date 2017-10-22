@@ -1,16 +1,17 @@
+pkg load control;
 close all;
 clear all;
 
 t=0.005;
-zt=input("INPUT;zt=");
-tr=input("INPUT;tr=");
-tq=input("INPUT;tq=");
-Kt=0.61;
-Ktn=0.6;
-J=0.0071;
-Jn=0.007;
-Kp=J/(Kt*tr^2);
-Kd=2*zt*tr*Kp;
+tr = input("INPUT;tr=");
+zt = input("INPUT;zt=");
+tq = input("INPUT;tq=");
+Kt = 0.61;
+Ktn = 0.6;
+J = 0.0071;
+Jn = 0.007;
+Kp = J / (Kt * tr^2);
+Kd = 2*zt*tr*Kp;
 Kp
 Kd
 
