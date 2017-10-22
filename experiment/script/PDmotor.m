@@ -1,4 +1,4 @@
-pkg load control
+pkg load control;
 close all;
 clear all;
 
@@ -21,10 +21,12 @@ sysKd = tf([Kd,0],[t,1]);
 sysKd
 sysA = sysmotor * (sysKp + sysKd);
 fbA = sysA / (sysA + 1);
-step(fbA);
 
+set(0,'defaultAxesFontSize',14);
+set(0,'defaultTextFontSize',20);
+step(fbA);
 xlabel("Time [ms]");
-ylabel("step Response");
+ylabel("position");
 name = ["Tr=", mat2str(tr), ", Zt=", num2str(zt, '%.2e')];
 title(strcat(name));
 legend("step response");
