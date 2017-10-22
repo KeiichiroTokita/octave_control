@@ -8,7 +8,7 @@ for file in result_200_2_dist_Tq_20; do
 $tr
 $zt
 EOF
-    output_name=$(echo $file | sed "s/.data/_theory_pd.pdf/")
+    output_name="result_200_2_Tq_20_theory_pd.pdf"
     mv file.pdf ${output_name}
     
     cat <<EOF | octave ../../script/DTob2.m
@@ -16,6 +16,6 @@ $tr
 $zt
 $tq
 EOF
-    output_name=$(echo $file | sed "s/.data/_theory_dist.pdf/")
+    output_name="result_200_2_Tq_20_theory_dist.pdf"
     mv file.pdf ${output_name}
 done
