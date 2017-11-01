@@ -27,21 +27,22 @@ if [ $column_num -eq 4 ]; then
 	cat << EOF > gnuplot
 plot "${result_file_name}" u 1:3 every 10 w l title "current [A]"
 replot "${result_file_name}" u 1:4 every 10 w l title "position [rad]"
+set ylabel "current[A]/position[rad]"
 EOF
 else
 	cat << EOF > gnuplot
 plot "${result_file_name}" u 1:2 every 10 w l title "current [A]"
-replot "${result_file_name}" u 1:3 every 10 w l title  "position [rad]"
+replot "${result_file_name}" u 1:3 every 10 w l title  "angular velocity [rad/s]"
+set ylabel "current[A]/angular velocity[rad/s]"
 EOF
 fi
 cat << EOF >> gnuplot
-set tics font "Helvetica,20"
-set xlabel font "Helvetica,20"
-set ylabel font "Helvetica,20"
-set key font "Helvetica,20"
+set tics font "Helvetica,19"
+set xlabel font "Helvetica,19"
+set ylabel font "Helvetica,19"
+set key font "Helvetica,19"
 set grid
 set xlabel "time[s]"
-set ylabel "current[A]/position[rad]"
 replot
 set terminal pdfcairo
 set lmargin 10
