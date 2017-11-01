@@ -4,7 +4,7 @@ for file in $(ls | grep "^\(result\).*\(.data\)$"); do
     tr=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $2}')
     zt=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $3}')
     tq=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $5}')
-    cat <<EOF | octave ../../script/PDmotor.m
+    cat <<EOF | octave ../../script/PDarm.m
 $tr
 $zt
 EOF

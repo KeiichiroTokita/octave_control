@@ -4,7 +4,7 @@ for file in result_200_2_dist_Tq_20; do
     tr=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $2}')
     zt=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $3}')
     tq=$(echo $file | sed "s/.data//" | awk -F '[_]' '{print $6}')
-    cat <<EOF | octave ../../script/PDmotor.m
+    cat <<EOF | octave ../../script/PDarm.m
 $tr
 $zt
 EOF
